@@ -34,8 +34,12 @@ const Board = () => { // export class Board extends Component
   }
 
   const winner = calculateWinner(squares);
-
-  const status = `Next Player ${xIsNext ? 'X' : 'O'}`;
+  let status;
+  if(winner) {
+    status = 'Winner: ' + winner
+  } else {    
+    status = `Next Player ${xIsNext ? 'X' : 'O'}`;
+  }
 
   const handleClick = (i) => {
     const newSquares = squares.slice();
